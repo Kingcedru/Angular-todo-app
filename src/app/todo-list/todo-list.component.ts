@@ -7,18 +7,20 @@ import { FormsModule, NgForm } from '@angular/forms';
   standalone: true,
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css'],
-  imports: [FormsModule, CommonModule]
+  imports: [FormsModule, CommonModule],
 })
 export class TodoListComponent implements OnInit {
-  taskArray = [{taskName: "Brush teeth", isCompleted: false}]
+  taskArray = [{ taskName: 'Brush teeth', isCompleted: false }];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  onSubmit(form: NgForm) {
+    console.log(form);
+    this.taskArray.push({
+      taskName: form.controls['task'].value,
+      isCompleted: false,
+    });
   }
-
-  onSubmit(form: NgForm){
-
-  }
-
 }
