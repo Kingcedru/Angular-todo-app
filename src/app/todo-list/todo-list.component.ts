@@ -23,4 +23,8 @@ export class TodoListComponent implements OnInit {
       isCompleted: false,
     });
   }
+
+  onDelete(index: number) {
+    this.taskArray.splice(index,1)
+  }
 }
