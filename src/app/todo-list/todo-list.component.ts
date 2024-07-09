@@ -21,10 +21,14 @@ export class TodoListComponent implements OnInit {
       taskName: form.controls['task'].value,
       isCompleted: false,
     });
-    form.reset()
+    form.reset();
   }
 
   onDelete(index: number) {
-    this.taskArray.splice(index,1)
+    this.taskArray.splice(index, 1);
+  }
+
+  onCheck(index: number) {
+    this.taskArray[index].isCompleted = !this.taskArray[index].isCompleted
   }
 }

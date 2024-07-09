@@ -13,7 +13,10 @@
         name="task"
         required=""
       />
-      <small *ngIf="taskForm.invalid && taskForm.dirty" id="errorMessage" class="form-text text-danger"
+      <small
+        *ngIf="taskForm.invalid && taskForm.dirty"
+        id="errorMessage"
+        class="form-text text-danger"
         >Required field</small
       >
     </div>
@@ -38,7 +41,7 @@
     <tbody>
       <tr *ngFor="let t of taskArray; index as i">
         <td>{{ t.taskName }}</td>
-        <td><input id="myCheckbox" type="checkbox" /></td>
+        <td><input (change)="onCheck(i)" id="myCheckbox" type="checkbox" /></td>
         <td>
           <button class="btn btn-danger btn-sm" (click)="onDelete(i)">
             Delete
